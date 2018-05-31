@@ -1,0 +1,87 @@
+--- TABELA BUDYNKI ---
+CREATE TABLE BUDYNKI
+(
+    idBudynku NUMBER(3) PRIMARY KEY,
+	nazwa_budynku VARCHAR(15),
+	idDaneKontaktowe NUMBER(3) NOT NULL,
+    idKierownia NUMBER(3) NOT NULL
+);
+--- TABELA PRACOWNICY
+CREATE TABLE PRACOWNICY
+(
+	idPracownia NUmber(3) PRIMARY KEY,
+	nazwisko VARCHAR(15),
+	haslo VARCHAR(32),
+	idStanowiska NUMBER(3),
+	idBudynku NUMBER(3),
+	idDaneKontaktowe NUMBER(3)
+);
+--- TABELA STANOWISKA
+CREATE TABLE STANOWISKA
+(
+	idStanowiska NUMBER(3) PRIMARY KEY,
+	pensja INTEGER,
+	nazwaStanowiska VARCHAR2(20)
+);
+-- TABLEA DANE KONTAKTOWE
+CREATE TABLE DANEKONTAKOWE
+(
+	idDaneKontaktowe Number(3) PRIMARY KEY,
+	kodPocztowy NUMBER(5),
+	miast VARCHAR2(30),
+	ulica VARCHAR2(15),
+	numerBudynku INTEGER,
+	numerTelefonu VARCHAR2(15)
+
+);
+--- TABELA DOSTAWY
+CREATE TABLE DOSTAWY
+(
+	idDostawy NUMBER(3) PRIMARY KEY,
+	data DATE,
+	ilosc INTEGER,
+	idProduktu NUMBER(3),
+	idKierownika NUMBER(3)
+);
+--- TABELA KLIENCI
+CREATE TABLE KLIENCI
+(
+	idKlienta NUMBER(3),
+	nazwisko VARCHAR2(15),
+	idDaneKontaktowe NUMBER(3)
+);
+-- TABELA ZAMOWIENIA
+CREATE TABLE ZAMOWIENIA
+(
+	idZamowienia NUMBER(3) PRIMARY KEY,
+	ilosc INTEGER NOT NULL,
+	dataZamowienia Date NOT NULL,
+	idKlienta NUMBER(3),
+	idProduktu NUMBER(3),
+	idPracownia NUMBER(3)
+	
+);
+
+CREATE TABLE PRODUKTY
+(
+	idProduktu NUMBER(3) PRIMARY KEY,
+	nazwa_produktu VARCHAR2(32) NOT NULL,
+	cena FLOAT NOT NULL,
+	idBudynku NUMBER(3),
+	idProducenta NUMBER(3)
+);
+CREATE TABLE PRODUCENCI
+(
+	idProducenta NUMBER(3) PRIMARY KEY,
+	nazwa_Producenta VARCHAR2(30),
+	idDaneKontaktowe NUMBER(3)
+);
+DROP TABLE PRODUCENCI;
+DROP TABLE PRODUKTY;
+DROP TABLE KLIENCI;
+DROP TABLE ZAMOWIENIA;
+DROP TABLE DOSTAWY;
+DROP TABLE BUDYNKI;
+DROP TABLE STANOWISKA;
+DROP TABLE PRACOWNICY;
+DROP TABLE DANEKONTAKOWE;
