@@ -33,17 +33,17 @@
 	(
 		id_Stanowiska NUMBER(3) PRIMARY KEY,
 		pensja INTEGER NOT NULL,
-		nazwaStanowiska VARCHAR2(20) UNIQUE
+		nazwa_Stanowiska VARCHAR2(20) UNIQUE
 	);
 	-- TABLEA DANE KONTAKTOWE
 	CREATE TABLE DANEKONTAKTOWE
 	(
 		id_DaneKontaktowe Number(3) PRIMARY KEY,
-		kodPocztowy NUMBER(5) NOT NULL,
+		kod_pocztowy NUMBER(5) NOT NULL,
 		miast VARCHAR2(30) NOT NULL,
 		ulica VARCHAR2(50) NOT NULL,
-		numerBudynku INTEGER,
-		numerTelefonu VARCHAR2(15)
+		numer_Budynku INTEGER,
+		numer_Telefonu VARCHAR2(15)
 
 	);
 	--- TABELA DOSTAWY
@@ -59,7 +59,7 @@
 	CREATE TABLE KLIENCI
 	(
 		id_Klienta NUMBER(3) PRIMARY KEY,
-		nazwiskoKlienta VARCHAR2(15), 
+		nazwisko_Klienta VARCHAR2(15), 
 		id_DaneKontaktowe NUMBER(3) UNIQUE
 	);
 	-- TABELA ZAMOWIENIA
@@ -151,101 +151,101 @@
 	values ('21','PODLOGA','pro123',4,7,27); --- ROBOTNIK		
 
 	--- WYPELNIENIE STANOWISKA
-	Insert into STANOWISKA (id_Stanowiska,pensja,nazwaStanowiska)
+	Insert into STANOWISKA (id_Stanowiska,pensja,nazwa_Stanowiska)
 	values (1,50000,'WLASCICIEL'); 		
-	Insert into STANOWISKA (id_Stanowiska,pensja,nazwaStanowiska)
+	Insert into STANOWISKA (id_Stanowiska,pensja,nazwa_Stanowiska)
 	values (2,4000,'KIERWONIK BUDYNKU');
-	Insert into STANOWISKA (id_Stanowiska,pensja,nazwaStanowiska)
+	Insert into STANOWISKA (id_Stanowiska,pensja,nazwa_Stanowiska)
 	values (3,3000,'OBSŁUGA TOWARU');
-	Insert into STANOWISKA (id_Stanowiska,pensja,nazwaStanowiska)
+	Insert into STANOWISKA (id_Stanowiska,pensja,nazwa_Stanowiska)
 	values (4,2500,'OBSŁUGA KLIENTA');
 
 --WYPELNIENIE DANYCH KONTAKTOWYCH
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (0, 12345, 'New Orlean', 'Second Street', 5, '999888777');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (1, 22333, 'Novigrad', 'Portowa', 179, '111111111');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (2, 22333, 'Novigrad', 'Portowa', 222, '222222222');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (3, 22333, 'Novigrad', 'Portowa', 3, '333333333');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (4, 66644, 'Beauclair', 'Wiseppe', 69, '987987789');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (5, 66655, 'Beauclair', 'Cornwal', 4, '456654132');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (6, 65412, 'Velen', 'Nowy Sad', 56, '591753456');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (7, 78963, 'Krzywuchowe Moczary', 'Dom Pań Lasu', 666, '999999999');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (8, 45667, 'Honolulu', 'Fish Street', 45, '456654456');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (9, 47898, 'Hollywood', 'Bevrly Hills', 2012, '123125879');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (10, 78978, 'Pasedina', 'Dani Street', 568, '484523654');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (11, 45632, 'Sosnowiec', 'Chytrej Baby', 2, '789456654');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (12, 78945, 'Berlin', 'Franzochiche Strasse', 45, 456545557);
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (13, 77778, 'Miami', 'Sky Street', 26, '789234678');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (14, 78952, 'Warszawa', 'Kwiatowa', 45, '456654456');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (15, 45687, 'Katowice', 'Górnicza', 77, '528852258');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (16, 45697, 'Kraków', 'Mgielna', 1, '852963741');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (17, 32132, 'Katowice', 'Mgielna', 4, '546254897');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (18, 11111, 'Nysa', 'Nyska', 2, '222854697');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (19, 44423, 'Brzeg', 'Księcia Jana Piasta', 98, '725523734');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (20, 69825, 'Opole', 'Ozimska', 77, '989969363');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (21, 65832, 'Moskwa', 'Vladimirska', 9, '567254795');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (22, 56978, 'Petersburg', 'Iwanowa', 4, '548214875');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (23, 24685, 'Oslo', 'Kirnej', 67, '531469785');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (24, 35765, 'Konstantynopol', 'Turecka', 56, '325695154');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (25, 65895, 'Ateny', 'Zeusa', 425, '456782135');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (26, 21465, 'Kreta', 'Kretynka', 21, '2121212114');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (27, 21465, 'Istambuł', 'David_oa', 65, '034547254');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (28, 36502, 'Bydgoszcz', 'Bydgoska', 8, '658658623');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (29, 32502, 'Roma', 'Santa Bambino', 14, '201365789');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (30, 35894, 'Frorencja', 'Vinci', 36, '325789013');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (31, 89756, 'Siena', 'Holaola', 49, '325798456');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (32, 96315, 'Vinci', 'Ciaociao', 7, '034985165');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (33, 32045, 'Cinque Terre', 'Terre Uno', 4, '965488235');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (34, 93654, 'Cinque Terre', 'Terre Dos', 2, '222333999');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (35, 58978, 'Piza', 'Pizza', 99, '965456852');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (36, 96532, 'New York', 'Manhattan', 23, '369 963 258');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (37, 47835, 'Queens Berry', 'Golden Eye', 87, '007077707');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (38, 25635, 'Amsterdam', 'Greenska', 98, '325795000');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (39, 00325, 'Yellow Town', 'Black Street', 30, '254320146');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (40, 88899, 'Nebraska Town', 'Texhool', 6, '235479621');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (41, 00345, 'Barcelona', 'Messi', 1, '456279164');
-INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kodPocztowy, miast, ulica, numerBudynku, numerTelefonu)
+INSERT into DANEKONTAKTOWE (id_DaneKontaktowe, kod_pocztowy, miast, ulica, numer_Budynku, numer_Telefonu)
 values (42, 21465, 'London', 'HelloThere', 4, '547632819');
 
 	--- WYPEŁNIENIE DOSTAWY
@@ -317,23 +317,23 @@ values (42, 21465, 'London', 'HelloThere', 4, '547632819');
 	values (13,'Czesci zapasowe', 10.00,30,7,5);
 	
 	---WYPEŁNIENIE KLIENCI
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (1,'Kowalski',34);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (2,'BLONSKI',35);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (3,'CYTERA',36);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (4,'PIZZA',37);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (5,'BANAN',38);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (6,'KWIATKOWSKI',39);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (7,'NAZIEMSKI',40);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (8,'PILSUDZKI',41);
-	Insert into KLIENCI(id_Klienta,nazwiskoKlienta,id_DaneKontaktowe)
+	Insert into KLIENCI(id_Klienta,nazwisko_Klienta,id_DaneKontaktowe)
 	values (9,'KORWIN',42);
 	
 	---WYPELNIENIE ZAMOWIENIA
