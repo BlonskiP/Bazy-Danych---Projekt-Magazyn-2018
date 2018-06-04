@@ -16,6 +16,7 @@
 	DROP VIEW DOSTAWY_MAGAZY5;
 	DROP VIEW DOSTAWY_MAGAZY6;
 	DROP VIEW DOSTAWY_MAGAZY7;
+	DROP VIEW ZAMOWIENIA;
 	--- TABELA BUDYNKI ---
 	CREATE TABLE BUDYNKI
 	(
@@ -544,3 +545,10 @@ CREATE VIEW KLIENCI AS
 SELECT nazwisko_klienta, kod_pocztowy, miasto, ulica, numer_budynku, numer_telefonu
 from Klienci
 natural join Dane_kontaktowe;
+
+CREATE VIEW LISTA_ZAMOWIEN AS
+SELECT nazwa_produktu, (cena*Zamowienia.ilosc) as koszt_Zamowienia, nazwisko_klienta, ulica, KOD_POCZTOWY, miasto
+from zamowienia
+join klienci on zamowienia.ID_KLIENTA=klienci.ID_KLIENTA
+join DANE_KONTAKTOWE on klienci.ID_DANE_KONTAKTOWE=DANE_KONTAKTOWE.ID_DANE_KONTAKTOWE
+join produkty on zamowienia.ID_PRODUKTU=produkty.ID_PRODUKTU;
