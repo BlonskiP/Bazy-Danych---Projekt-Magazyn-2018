@@ -7,9 +7,9 @@
 	DROP TABLE BUDYNKI cascade constraints;
 	DROP TABLE STANOWISKA cascade constraints;
 	DROP TABLE PRACOWNICY cascade constraints;
-	DROP TABLE Dane_Kontaktowe cascade constraints
-	DROP TABLE HISTORIA_ZAMOWIEN cascade constraints;
+	DROP TABLE Dane_Kontaktowe cascade constraints;
 	DROP VIEW WSZY_PRAC;
+    DROP VIEW MAGAZYNY;
 	DROP VIEW DOSTAWY_MAGAZY1;
 	DROP VIEW DOSTAWY_MAGAZY2;
 	DROP VIEW DOSTAWY_MAGAZY3;
@@ -17,7 +17,9 @@
 	DROP VIEW DOSTAWY_MAGAZY5;
 	DROP VIEW DOSTAWY_MAGAZY6;
 	DROP VIEW DOSTAWY_MAGAZY7;
-	DROP VIEW ZAMOWIENIA;
+	DROP VIEW LISTA_ZAMOWIEN;
+    DROP VIEW LISTA_KLIENTOW;
+    DROP TABLE HISTORIA_ZAMOWIEN;
 	--- TABELA BUDYNKI ---
 	CREATE TABLE BUDYNKI
 	(
@@ -542,7 +544,7 @@ join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
 join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
 WHERE pracownicy.ID_BUDYNKU=7;
 
-CREATE VIEW KLIENCI AS
+CREATE VIEW LISTA_KLIENTOW AS
 SELECT nazwisko_klienta, kod_pocztowy, miasto, ulica, numer_budynku, numer_telefonu
 from Klienci
 natural join Dane_kontaktowe;
@@ -558,7 +560,7 @@ join produkty on zamowienia.ID_PRODUKTU=produkty.ID_PRODUKTU;
 
 CREATE TABLE HISTORIA_ZAMOWIEN
 	(
-		id_Zamowienia NUMBER(3) PRIMARY KEY,
+		id_Histori_Zamowienia NUMBER(3) PRIMARY KEY,
 		ilosc INTEGER NOT NULL,
 		data_Zamowienia Date NOT NULL,
 		id_Klienta NUMBER(3) NOT NULL,
@@ -566,3 +568,23 @@ CREATE TABLE HISTORIA_ZAMOWIEN
 		id_Pracownika NUMBER(3) NOT NULL
 		
 	)TABLESPACE "USERS" ;
+	
+DROP TRIGGER DODAJ_DO_HISTORI;
+CREATE OR REPLACE TRIGGER DODAJ_DO_HISTORI
+BEFORE DELETE ON ZAMOWIENIA for each row
+BEGIN
+INSERT INTO ISTORIA_ZAMOWIEN
+(
+id_Histori_Zamowienia,ilosc,data_Zamowienia,id_Klienta,id_Produktu,id_Pracownika
+)
+VALUES
+(
+:old.id_zamowienia,
+:old.ilosc,
+:old.data_Zamowienia,
+:old.id_Klienta,
+:old.id_Klienta,
+:old.id_Produktu,
+:old.id_Pracownika
+);
+END;
