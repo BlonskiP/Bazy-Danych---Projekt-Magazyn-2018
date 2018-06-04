@@ -7,7 +7,8 @@
 	DROP TABLE BUDYNKI cascade constraints;
 	DROP TABLE STANOWISKA cascade constraints;
 	DROP TABLE PRACOWNICY cascade constraints;
-	DROP TABLE Dane_Kontaktowe cascade constraints;
+	DROP TABLE Dane_Kontaktowe cascade constraints
+	DROP TABLE HISTORIA_ZAMOWIEN cascade constraints;
 	DROP VIEW WSZY_PRAC;
 	DROP VIEW DOSTAWY_MAGAZY1;
 	DROP VIEW DOSTAWY_MAGAZY2;
@@ -552,3 +553,16 @@ from zamowienia
 join klienci on zamowienia.ID_KLIENTA=klienci.ID_KLIENTA
 join DANE_KONTAKTOWE on klienci.ID_DANE_KONTAKTOWE=DANE_KONTAKTOWE.ID_DANE_KONTAKTOWE
 join produkty on zamowienia.ID_PRODUKTU=produkty.ID_PRODUKTU;
+
+-- LOG
+
+CREATE TABLE HISTORIA_ZAMOWIEN
+	(
+		id_Zamowienia NUMBER(3) PRIMARY KEY,
+		ilosc INTEGER NOT NULL,
+		data_Zamowienia Date NOT NULL,
+		id_Klienta NUMBER(3) NOT NULL,
+		id_Produktu NUMBER(3) NOT NULL,
+		id_Pracownika NUMBER(3) NOT NULL
+		
+	)TABLESPACE "USERS" ;
