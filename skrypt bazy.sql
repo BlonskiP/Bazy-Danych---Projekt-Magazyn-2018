@@ -9,7 +9,13 @@
 	DROP TABLE PRACOWNICY cascade constraints;
 	DROP TABLE Dane_Kontaktowe cascade constraints;
 	DROP VIEW WSZY_PRAC;
-
+	DROP VIEW DOSTAWY_MAGAZY1;
+	DROP VIEW DOSTAWY_MAGAZY2;
+	DROP VIEW DOSTAWY_MAGAZY3;
+	DROP VIEW DOSTAWY_MAGAZY4;
+	DROP VIEW DOSTAWY_MAGAZY5;
+	DROP VIEW DOSTAWY_MAGAZY6;
+	DROP VIEW DOSTAWY_MAGAZY7;
 	--- TABELA BUDYNKI ---
 	CREATE TABLE BUDYNKI
 	(
@@ -473,3 +479,64 @@ Join budynki on PRACOWNICY.id_budynku=budynki.ID_BUDYNKU
 Join DANE_KONTAKTOWE on PRACOWNICY.ID_DANE_KONTAKTOWE = DANE_KONTAKTOWE.ID_DANE_KONTAKTOWE
 join STANOWISKA on PRACOWNICY.ID_STANOWISKA=STANOWISKA.ID_STANOWISKA
 order by PRACOWNICY.ID_STANOWISKA;
+	
+	CREATE VIEW MAGAZYNY AS
+SELECT Nazwa_budynku, nazwa_produktu, ilosc
+from Produkty natural join budynki;
+
+CREATE VIEW DOSTAWY_MAGAZY1 AS
+SELECT nazwa_produktu, nazwa_producenta, nazwisko_pracownika as Nazwisko_kierownika, Dostawy.DATA_DOSTAWY, Dostawy.ILOSC
+from Dostawy
+join produkty on Dostawy.ID_PRODUKTU=produkty.ID_PRODUKTU
+join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
+join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
+WHERE pracownicy.ID_BUDYNKU=1;
+
+CREATE VIEW DOSTAWY_MAGAZY2 AS
+SELECT nazwa_produktu, nazwa_producenta, nazwisko_pracownika as Nazwisko_kierownika, Dostawy.DATA_DOSTAWY, Dostawy.ILOSC
+from Dostawy
+join produkty on Dostawy.ID_PRODUKTU=produkty.ID_PRODUKTU
+join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
+join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
+WHERE pracownicy.ID_BUDYNKU=2;
+
+CREATE VIEW DOSTAWY_MAGAZY3 AS
+SELECT nazwa_produktu, nazwa_producenta, nazwisko_pracownika as Nazwisko_kierownika, Dostawy.DATA_DOSTAWY, Dostawy.ILOSC
+from Dostawy
+join produkty on Dostawy.ID_PRODUKTU=produkty.ID_PRODUKTU
+join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
+join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
+WHERE pracownicy.ID_BUDYNKU=3;
+
+CREATE VIEW DOSTAWY_MAGAZY4 AS
+SELECT nazwa_produktu, nazwa_producenta, nazwisko_pracownika as Nazwisko_kierownika, Dostawy.DATA_DOSTAWY, Dostawy.ILOSC
+from Dostawy
+join produkty on Dostawy.ID_PRODUKTU=produkty.ID_PRODUKTU
+join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
+join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
+WHERE pracownicy.ID_BUDYNKU=4;
+
+CREATE VIEW DOSTAWY_MAGAZY5 AS
+SELECT nazwa_produktu, nazwa_producenta, nazwisko_pracownika as Nazwisko_kierownika, Dostawy.DATA_DOSTAWY, Dostawy.ILOSC
+from Dostawy
+join produkty on Dostawy.ID_PRODUKTU=produkty.ID_PRODUKTU
+join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
+join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
+WHERE pracownicy.ID_BUDYNKU=5;
+
+CREATE VIEW DOSTAWY_MAGAZY6 AS
+SELECT nazwa_produktu, nazwa_producenta, nazwisko_pracownika as Nazwisko_kierownika, Dostawy.DATA_DOSTAWY, Dostawy.ILOSC
+from Dostawy
+join produkty on Dostawy.ID_PRODUKTU=produkty.ID_PRODUKTU
+join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
+join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
+WHERE pracownicy.ID_BUDYNKU=6;
+
+CREATE VIEW DOSTAWY_MAGAZY7 AS
+SELECT nazwa_produktu, nazwa_producenta, nazwisko_pracownika as Nazwisko_kierownika, Dostawy.DATA_DOSTAWY, Dostawy.ILOSC
+from Dostawy
+join produkty on Dostawy.ID_PRODUKTU=produkty.ID_PRODUKTU
+join producenci on produkty.ID_PRODUKTU=producenci.ID_PRODUCENTA
+join pracownicy on Dostawy.ID_KIEROWNIKA=pracownicy.ID_PRACOWNIKA
+WHERE pracownicy.ID_BUDYNKU=7;
+	
