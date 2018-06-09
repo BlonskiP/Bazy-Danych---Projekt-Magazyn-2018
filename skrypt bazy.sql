@@ -1,4 +1,4 @@
-	--- CLEANING
+﻿	--- CLEANING
 	DROP TABLE PRODUCENCI cascade constraints;
 	DROP TABLE PRODUKTY cascade constraints;
 	DROP TABLE KLIENCI cascade constraints;
@@ -20,6 +20,7 @@
 	DROP VIEW LISTA_ZAMOWIEN;
     DROP VIEW LISTA_KLIENTOW;
     DROP TABLE HISTORIA_ZAMOWIEN;
+	DROP TRIGGER DODAJ_DO_HISTORI;
 	--- TABELA BUDYNKI ---
 	CREATE TABLE BUDYNKI
 	(
@@ -569,11 +570,11 @@ CREATE TABLE HISTORIA_ZAMOWIEN
 		
 	)TABLESPACE "USERS" ;
 	
-DROP TRIGGER DODAJ_DO_HISTORI;
+
 CREATE OR REPLACE TRIGGER DODAJ_DO_HISTORI
 BEFORE DELETE ON ZAMOWIENIA for each row
 BEGIN
-INSERT INTO ISTORIA_ZAMOWIEN
+INSERT INTO HISTORIA_ZAMOWIEN
 (
 id_Histori_Zamowienia,ilosc,data_Zamowienia,id_Klienta,id_Produktu,id_Pracownika
 )
@@ -582,7 +583,6 @@ VALUES
 :old.id_zamowienia,
 :old.ilosc,
 :old.data_Zamowienia,
-:old.id_Klienta,
 :old.id_Klienta,
 :old.id_Produktu,
 :old.id_Pracownika
